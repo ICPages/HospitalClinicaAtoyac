@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Clínica Atoyac | Directorio Médico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/webp" href="Logo.webp">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Hospital Clínica Atoyac</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item ms-3"><a class="nav-cta px-4 py-2" href="index.html#contacto"><strong>Cotizar Servicio</strong></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="directorio" class="section-spacing">
+        <div class="container">
+            <h1 class="titulo-pagina">Directorio Médico</h1>
+
+            <!-- FILTROS -->
+<div id="filtross" class="row g-3 mb-5 justify-content-center">
+    <div class="col-lg-4">
+        <input type="text" id="searchInput" class="form-control"
+            placeholder="Buscar área, especialidad o médico..." onkeyup="filtrarMedicos()">
+    </div>
+    <div class="col-lg-4">
+        <select id="especialidadFiltro" class="form-select" onchange="filtrarMedicos()">
+            <option value="">Área o especialidad</option>
+            <option value="Administrativa">Administrativa</option>
+            <option value="Cardiología">Cardiología</option>
+            <option value="Cirugía General">Cirugía General</option>
+            <option value="Gastroenterología">Gastroenterología</option>
+            <option value="Ginecología">Ginecología</option>
+            <option value="Medicina de Urgencias">Medicina de Urgencias</option>
+            <option value="Medicina Interna">Medicina Interna</option>
+            <option value="Medicina General">Medicina General</option>
+            <option value="Oftalmología">Oftalmología</option>
+            <option value="Otorrinolaringología">Otorrinolaringología</option>
+            <option value="Pediatría">Pediatría</option>
+            <option value="Podología">Podología</option>
+            <option value="Psicología">Psicología</option>
+            <option value="Traumatología y Ortopedia">Traumatología y Ortopedia</option>
+            <option value="todos">Todos</option>
+        </select>
+    </div>
+    <div class="col-lg-2 d-grid">
+        <button class="btn btn-outline-secondary" onclick="limpiarFiltros()"><i class="bi bi-x-circle"></i> Borrar</button>
+    </div>
+</div>
+
+<!-- DIRECTORIO -->
+<div class="row g-4" id="directorioMedicos">
+
+    <div class="col-md-4 medico-card" data-nombre="Acosta" data-especialidad="Traumatología y Ortopedia">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dr. Acosta</h5>
+            <p class="text-muted">Traumatología y Ortopedia</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dr.%20Acosta"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="David Bello" data-especialidad="Psicología">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Psic. David Bello</h5>
+            <p class="text-muted">Psicología</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Psic.%20David%20Bello"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Erubey Laurel" data-especialidad="Pediatría">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dr. Erubey Laurel</h5>
+            <p class="text-muted">Pediatría</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dr.%20Erubey%20Laurel"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Felix Pacheco" data-especialidad="Medicina de Urgencias">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dr. Felix Pacheco</h5>
+            <p class="text-muted">Urgencias</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dr.%20Felix%20Pacheco"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Jovan Morales" data-especialidad="Medicina de Urgencias">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dr. Jovan Morales</h5>
+            <p class="text-muted">Médico Urgenciólogo (Urgencias)</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dr.%20Jovan%20Morales"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Jesús Romero Palma" data-especialidad="Ginecología">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dr. Jesús Romero Palma</h5>
+            <p class="text-muted">Ginecología</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a
+                    href="https://wa.me/527420000000?text=Hola%20Dr.%20Jesús%20Romero%20Palma" target="_blank"> 742 XXX
+                    XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Marina Leal" data-especialidad="Ginecología">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dra. Marina Leal</h5>
+            <p class="text-muted">Especialista en Colposcopía</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dra.%20Marina%20Leal"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Omar Díaz" data-especialidad="Cirugía General,Gastroenterología">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dr. Omar Díaz</h5>
+            <p class="text-muted">Cirugía General y Gastroenterología</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dr.%20Omar%20Díaz"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Quiróz" data-especialidad="Otorrinolaringología">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dr. Quiróz</h5>
+            <p class="text-muted">Otorrinolaringólogo</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dr.%20Quiróz"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Recepción" data-especialidad="Administrativa">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Recepción</h5>
+            <p class="text-muted">Atención y citas médicas</p>
+            <p class="cedula"><br></p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a
+                    href="https://wa.me/527421112886?text=¡Hola%20Hospital%20Clínica%20Atoyac!%20Me%20gustaría%20recibir%20más%20información%20sobre: "
+                    target="_blank"> 742 111 2886</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Rodrigo Orozco" data-especialidad="Oftalmología">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dr. Rodrigo Orozco</h5>
+            <p class="text-muted">Oftalmología</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dr.%20Rodrigo%20Orozco"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Sergio Eugenio" data-especialidad="Medicina General,Medicina de Urgencias">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dr. Sergio Eugenio</h5>
+            <p class="text-muted">Medicina General y Urgencias</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dr.%20Sergio%20Eugenio"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Stefanía Solache Ayala" data-especialidad="Medicina General,MEdicina de Urgencias">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dra. Stefanía Solache Ayala</h5>
+            <p class="text-muted">Medicina General y Urgencias</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a
+                    href="https://wa.me/527420000000?text=Hola%20Dra.%20Stefanía%20Solache%20Ayala" target="_blank"> 742
+                    XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+    
+    <div class="col-md-4 medico-card" data-nombre="Xavier Álvarez" data-especialidad="Podología">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dr. Xavier Álvarez</h5>
+            <p class="text-muted">Podólogo</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dr.%20Xavier%20Álvarez"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 medico-card" data-nombre="Zulema Lobato" data-especialidad="Pediatría">
+        <div class="premium-card text-center medico-item">
+            <img src="Perfil.webp" class="doctor-img">
+            <h5>Dra. Zulema Lobato</h5>
+            <p class="text-muted">Neuróloga Pediatra</p>
+            <p class="cedula">Cédula Profesional: XXXXXXX</p>
+            <p><i class="bi bi-telephone-fill"></i> Ext. XXX<br>
+                <i class="bi bi-whatsapp"></i><a href="https://wa.me/527420000000?text=Hola%20Dra.%20Zulema%20Lobato"
+                    target="_blank"> 742 XXX XXXX</a>
+            </p>
+        </div>
+    </div>
+
+<br>
+</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="footer-premium">
+        <div class="container">
+            <div class="row align-items-start">
+                <!-- Logo -->
+                <div class="col-lg-3 mb-4">
+                    <img src="Hover-Logo.webp" alt="Logo Hospital" class="img-fluid">
+                </div>
+                <!-- Info + Certificaciones -->
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Hospital Clínica Atoyac</h5>
+                    <p class="footer-text">
+                        Centro médico privado comprometido con la excelencia médica,
+                        infraestructura moderna y atención humana para cada paciente.
+                    </p>
+                    <!-- Logos de certificaciones -->
+                    <div class="footer-certifications mt-3">
+                        <a href="https://www.iso.org/iso-9001-quality-management.html" target="_blank" title="ISO 9001">
+                            <img loading="lazy" src="ISO9001.webp" alt="ISO 9001 Logo">
+                        </a>
+                        <a href="https://www.iso.org/iso-14001-environmental-management.html" target="_blank"
+                            title="ISO 14001">
+                            <img loading="lazy" src="ISO14001.webp" alt="ISO 14001 Logo">
+                        </a>
+                        <a href="https://www.cemefi.org/esr/" target="_blank" title="Distintivo ESR (2021)">
+                            <img loading="lazy" src="ESRblanco.webp" alt="ESR Logo">
+                        </a>
+                        <a href="https://www.jointcommissioninternational.org/" target="_blank"
+                            title="Joint Commission International">
+                            <img loading="lazy" src="JCI.webp" alt="JCI Logo">
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Sitios de Interés -->
+                <div class="col-lg-2 mb-4">
+                    <h5 class="footer-title">Sitios de Interés</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="conocenos.html">Conócenos</a></li>
+                        <li><a href="directoriomedico.html">Directorio Médico</a></li>
+                        <li><a href="instalaciones.html">Nuestras Instalaciones</a></li>
+                        <li><a href="certyperm.html">Certificaciones y Permisos</a></li>
+                        <li><a href="politicasdelsitio.html">Políticas del Sitio</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contacto -->
+                <div class="col-lg-3 mb-4">
+                    <h5 class="footer-title">Contacto</h5>
+                    <div class="footer-contact">
+                        <p>
+                            <i class="bi bi-telephone-fill"></i><a href="tel:+527424233333">742 423 3333</a>
+                        </p>
+                        <p>
+                            <i class="bi bi-whatsapp"></i>
+                            <a href="https://wa.me/527421112886?text=¡Hola%20Hospital%20Clínica%20Atoyac!%20Me%20gustaría%20recibir%20más%20información%20sobre:"
+                                target="_blank">
+                                742 111 2886
+                            </a>
+                        </p>
+                        <p>
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <a href="https://maps.app.goo.gl/tk8J3j7kpQECufs69" target="_blank">
+                                Álvaro Obregón esq. Av. Aquiles Serdán, Col. Centro. C. P. 40930. Atoyac de Álvarez,
+                                Guerrero, México.
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center footer-copy">© 2026 Hospital Clínica Atoyac. Sitio desarrollado por IC Pages.</div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <script type="text/javascript">
+        (function (d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function () {
+                window.voiceflow.chat.load({
+                    verify: { projectID: '69af2f835aa9718ce2b614b9' },
+                    url: 'https://general-runtime.voiceflow.com',
+                    versionID: 'production',
+                    voice: {
+                        url: "https://runtime-api.voiceflow.com"
+                    }
+                });
+            }
+            v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+    </script>
+
+    <script>
+        function filtrarMedicos() {
+            const texto = document.getElementById("searchInput").value.toLowerCase().trim();
+            const especialidad = document.getElementById("especialidadFiltro").value.toLowerCase().trim();
+            const medicos = document.querySelectorAll(".medico-card");
+
+            medicos.forEach(medico => {
+                const nombre = medico.dataset.nombre.toLowerCase();
+                const especialidades = medico.dataset.especialidad.toLowerCase().split(',').map(e => e.trim());
+
+                let mostrar = false;
+
+                if (especialidad === "todos") {
+                    // Mostrar todos sin importar el texto
+                    mostrar = true;
+                } else if (especialidad !== "" && especialidades.includes(especialidad)) {
+                    // Coincide con la especialidad seleccionada
+                    mostrar = true;
+                } else if (texto !== "" && (nombre.includes(texto) || especialidades.some(e => e.includes(texto)))) {
+                    // Coincide con el texto
+                    mostrar = true;
+                }
+
+                // Mostrar u ocultar
+                medico.style.display = mostrar ? "block" : "none";
+            });
+        }
+
+        function limpiarFiltros() {
+            document.getElementById("searchInput").value = "";
+            document.getElementById("especialidadFiltro").value = ""; // reinicia select a vacío
+            filtrarMedicos(); // aplica filtro (que oculta todo)
+        }
+
+        // Al cargar la página, ocultar todos
+        window.addEventListener('DOMContentLoaded', filtrarMedicos);
+    </script>
+
+    <script>
+        const medicos = document.querySelectorAll(".medico-card");
+        medicos.forEach(medico => {
+            const especialidad = medico.dataset.especialidad.toLowerCase();
+            if (especialidad !== "administrativa") {
+                medico.classList.add("clickable");
+                medico.style.cursor = "pointer";
+                medico.addEventListener("click", () => {
+                    const nombre = encodeURIComponent(medico.dataset.nombre);
+                    window.location.href = `bio.html?nombre=${nombre}`;
+                });
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
